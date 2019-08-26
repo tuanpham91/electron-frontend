@@ -1,3 +1,4 @@
+@import url("buttonStyle.css");
 .column {
     float: left;
     min-height: 100%;
@@ -6,12 +7,12 @@
 
 .left {
     width: 25%;
-    background-color: darkcyan;
+    background: linear-gradient(to bottom, #33ccff -20%, #6699ff 100%);
 }
 
 .right {
     width: 75%;
-    background-color: whitesmoke;
+    background-color: rgb(247, 247, 247);
 }
 
 .fill {
