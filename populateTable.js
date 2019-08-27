@@ -8,7 +8,17 @@ function addDataToTbody(nl, data) { // nl -> NodeList, data -> array with object
         nl.appendChild(tr);
     })
 }
+var lakeData = [{
+    "Id": "1959-01",
+    "Name": "DrugA",
+    "Quantity": 10,
+    "ExpirationDate": "Today"
+}, {
+    "Id": "1959-01",
+    "Name": "DrugB",
+    "Quantity": 10,
+    "ExpirationDate": "Today"
+}];
+var dataTbody = document.querySelector("#dataTable body");
 
-var lakeTbody = document.querySelector("#lake tbody");
-
-addDataToTbody(lakeTbody, lakeData);
+addDataToTbody(dataTbody, lakeData);
