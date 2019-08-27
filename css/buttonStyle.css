@@ -2,6 +2,7 @@
     position: relative;
     margin: 0 auto;
     display: block;
+    text-align: center;
     padding: 0;
     overflow: hidden;
     border-width: 0;
@@ -25,6 +26,12 @@
 .btn span {
     display: block;
     padding: 12px 24px;
+}
+
+.btn-top-position {
+    margin-top: 25px;
+    width: 40%;
+    min-width: 120px;
 }
 
 .btn:before {

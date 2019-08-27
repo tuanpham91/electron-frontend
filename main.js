@@ -2,14 +2,13 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow() {
     let win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 960,
+        height: 640,
         webPreference: {
-            nodeIntegration:true
+            nodeIntegration: true
         }
     })
     win.loadFile('start.html')
-    win.webContents.openDevTools()
     win.on('closed', () => {
         win = null
     })
