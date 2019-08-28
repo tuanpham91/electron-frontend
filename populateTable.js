@@ -1,24 +1,26 @@
 function addDataToTbody(nl, data) { // nl -> NodeList, data -> array with objects
-    data.forEach((d, i) => {
+    var parsedData = JSON.parse(data)
+    parsedData.forEach((o, i) => {
         var tr = nl.insertRow(i);
-        Object.keys(d).forEach((k, j) => { // Keys from object represent th.innerHTML
-            var cell = tr.insertCell(j);
-            cell.innerHTML = d[k]; // Assign object values to cells   
-        });
+        var ind = 0;
+        for (var att in o) {
+            var cell = tr.insertCell(ind);
+            cell.innerHTML = o(att); // Assign object values to cells  
+            ind++;
+        }
         nl.appendChild(tr);
     })
 }
-var lakeData = [{
-    "Id": "1959-01",
-    "Name": "DrugA",
-    "Quantity": 10,
-    "ExpirationDate": "Today"
-}, {
-    "Id": "1959-01",
-    "Name": "DrugB",
-    "Quantity": 10,
-    "ExpirationDate": "Today"
-}];
-var dataTbody = document.querySelector("#dataTable body");
 
-addDataToTbody(dataTbody, lakeData);
+var host = "http://localhost:8080/"
+
+function getInventoryData() {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", host.concat("inventory"), false); // false for synchronous request
+    xmlHttp.send(null);
+    console.log(xmlHttp.responseText)
+    return xmlHttp.responseText;
+}
+
+var dataBody = document.getElementById("data");
+addDataToTbody(dataBody, getInventoryData());

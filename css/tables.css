@@ -24,12 +24,19 @@
     width: 100%;
 }
 
-.pure-table-horizontal td,
 .pure-table-horizontal th {
     border-width: 0 0 1px 0;
     color: lightgray;
     border-bottom: 1px solid #cbcbcb;
     background-color: #3d3a5e;
+    text-align: center;
+}
+
+.pure-table-horizontal td {
+    border-width: 0 0 1px 0;
+    color: black;
+    border-bottom: 1px solid #cbcbcb;
+    background-color: whitesmoke;
     text-align: center;
 }
 
