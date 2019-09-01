@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <title>Hello World!</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="populateTable.js"></script>
 </head>
 
 <body>
     <div class="fill">
         <div class="column left">
-            <button class="btn btn-top-position" type="button"><span>Inventory</span></button>
+            <button class="btn btn-top-position" onclick="onClickInventory()" type="button"><span>Inventory</span></button>
             <button class="btn btn-top-position" type="button"><span>Orders</span></button>
-            <button class="btn btn-top-position" type="button"><span>Clear</span></button>
+            <button class="btn btn-top-position" onclick="clearRows()" type="button"><span>Clear</span></button>
         </div>
         <div class="column right">
             <h1 class="h1-fonts">Dashboard</h1>
@@ -25,10 +26,10 @@
                         <th>Expiration Date</th>
                     </tr>
                 </thead>
+                <tbody></tbody>
             </table>
         </div>
     </div>
 </body>
-<script src="populateTable.js"></script>
 
 </html>

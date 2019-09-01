@@ -5,7 +5,7 @@ function addDataToTbody(nl, data) { // nl -> NodeList, data -> array with object
         var ind = 0;
         for (var att in o) {
             var cell = tr.insertCell(ind);
-            cell.innerHTML = o(att); // Assign object values to cells  
+            cell.innerHTML = o[att]; // Assign object values to cells  
             ind++;
         }
         nl.appendChild(tr);
@@ -22,5 +22,22 @@ function getInventoryData() {
     return xmlHttp.responseText;
 }
 
-var dataBody = document.getElementById("data");
-addDataToTbody(dataBody, getInventoryData());
+function getRecordData() {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", host.concat("inventory"), false); // false for synchronous request
+    xmlHttp.send(null);
+    console.log(xmlHttp.responseText)
+    return xmlHttp.responseText;
+}
+
+function onClickInventory() {
+    var dataBody = document.getElementById("data");
+    addDataToTbody(dataBody, getInventoryData());
+}
+
+function clearRows() {
+    var dataBody = document.getElementById("data");
+    dataBody.getElementsByTagName("tr").forEach(e => {
+        e.remove();
+    });
+}
