@@ -31,13 +31,11 @@ function getRecordData() {
 }
 
 function onClickInventory() {
-    var dataBody = document.getElementById("data");
+    var dataBody = document.getElementById("data-body");
     addDataToTbody(dataBody, getInventoryData());
 }
 
 function clearRows() {
-    var dataBody = document.getElementById("data");
-    dataBody.getElementsByTagName("tr").forEach(e => {
-        e.remove();
-    });
+    var dataBody = document.getElementById("data-body");
+    dataBody.innerHTML = ""
 }
