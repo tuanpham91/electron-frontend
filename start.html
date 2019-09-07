@@ -8,7 +8,7 @@
     <script type="text/javascript" src="populateTable.js"></script>
 </head>
 
-<body>
+<body onload="loadInventoryTable()">
     <div class="fill">
         <div class="column left">
             <button class="btn btn-top-position" onclick="onClickInventory()" type="button"><span>Inventory</span></button>
@@ -17,19 +17,7 @@
         </div>
         <div class="column right">
             <h1 class="h1-fonts">Dashboard</h1>
-            <div class="table-div">
-                <table id="data" class="pure-table pure-table-horizontal padding-table">
-                    <thead class="thead">
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Quantity</th>
-                            <th>Expiration Date</th>
-                        </tr>
-                    </thead>
-                    <tbody id="data-body">
-                    </tbody>
-                </table>
+            <div class="table-div" id="current-table">
             </div>
         </div>
     </div>

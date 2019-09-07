@@ -12,6 +12,9 @@ function addDataToTbody(nl, data) { // nl -> NodeList, data -> array with object
     })
 }
 
+var inventory_table_content = new FileReader().readAsText("./inventory_table.html")
+
+
 var host = "http://localhost:8080/"
 
 function getInventoryData() {
@@ -33,6 +36,10 @@ function getRecordData() {
 function onClickInventory() {
     var dataBody = document.getElementById("data-body");
     addDataToTbody(dataBody, getInventoryData());
+}
+
+function loadInventoryTable() {
+    document.getElementById("current-table").innerHTML = inventory_table_content;
 }
 
 function clearRows() {
