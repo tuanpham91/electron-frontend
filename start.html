@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <title>Hello World!</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="populateTable.js"></script>
 </head>
 
-<body onload="loadInventoryTable()">
+<body>
     <div class="fill">
         <div class="column left">
             <button class="btn btn-top-position" onclick="onClickInventory()" type="button"><span>Inventory</span></button>
-            <button class="btn btn-top-position" type="button"><span>Orders</span></button>
+            <button class="btn btn-top-position" onclick="loadTable('record_table')" type="button"><span>Orders</span></button>
             <button class="btn btn-top-position" onclick="clearRows()" type="button"><span>Clear</span></button>
         </div>
-        <div class="column right">
+        <div class="column right" id="column-right">
             <h1 class="h1-fonts">Dashboard</h1>
             <div class="table-div" id="current-table">
             </div>

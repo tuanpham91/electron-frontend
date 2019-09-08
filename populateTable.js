@@ -12,16 +12,13 @@ function addDataToTbody(nl, data) { // nl -> NodeList, data -> array with object
     })
 }
 
-var inventory_table_content = new FileReader().readAsText("./inventory_table.html")
-
-
 var host = "http://localhost:8080/"
 
 function getInventoryData() {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", host.concat("inventory"), false); // false for synchronous request
     xmlHttp.send(null);
-    console.log(xmlHttp.responseText)
+    console.log(xmlHttp.responseText);
     return xmlHttp.responseText;
 }
 
@@ -38,11 +35,16 @@ function onClickInventory() {
     addDataToTbody(dataBody, getInventoryData());
 }
 
-function loadInventoryTable() {
-    document.getElementById("current-table").innerHTML = inventory_table_content;
+function loadTable(name) {
+    $('#current-table').innerHTML = "";
+    $('#current-table').load(name.concat(".html"));
 }
 
 function clearRows() {
     var dataBody = document.getElementById("data-body");
-    dataBody.innerHTML = ""
+    dataBody.innerHTML = "";
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    loadTable("inventory_table")
+});
