@@ -1,6 +1,7 @@
 @import url("buttonStyle.css");
 @import url("fonts.css");
 @import url("tables.css");
+@import url("filter.css");
 .column {
     float: left;
     min-height: 100%;
@@ -27,4 +28,32 @@
     left: 0;
     bottom: 0;
     padding: 0px;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
