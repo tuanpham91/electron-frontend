@@ -38,6 +38,17 @@ function clearRows() {
     dataBody.innerHTML = "";
 }
 
+function readInputValuesFromFields() {
+    var getInputFields = document.getElementsByClassName("input-text");
+    var filterTuples = getInputFields.map(x => {
+        return [x.getAttribute("name"), x.value];
+    })
+    return filterTuples;
+}
+
+/* Not sure why its here
 document.addEventListener("DOMContentLoaded", function() {
     loadTable(currentTable)
 });
+
+*/
