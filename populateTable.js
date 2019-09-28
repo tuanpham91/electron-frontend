@@ -17,8 +17,10 @@ var host = "http://localhost:8080/"
 function getData(name) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", host.concat(name), false); // false for synchronous request
-    xmlHttp.send(null);
-    console.log(xmlHttp.responseText);
+    var filters = JSON.stringify(readInputValuesFromFields());
+    // TODO: This one is still in a weird format
+    console.log(filters)
+    xmlHttp.send(filters.toString());
     return xmlHttp.responseText;
 }
 
@@ -31,6 +33,8 @@ function loadTable(name) {
     currentTable = name;
     $('#current-table').innerHTML = "";
     $('#current-table').load(name.concat("_table.html"));
+    $('#filter-widget').innerHTML = "";
+    $('#filter-widget').load(name.concat("_filter.html"));
 }
 
 function clearRows() {
@@ -39,12 +43,17 @@ function clearRows() {
 }
 
 function readInputValuesFromFields() {
-    var getInputFields = document.getElementsByClassName("input-text");
-    var filterTuples = getInputFields.map(x => {
-        return [x.getAttribute("name"), x.value];
-    })
-    return filterTuples;
+    var getInputFields = document.getElementsByClassName("inputText");
+    // Convert to Array
+    var inputFieldArray = Array.from(getInputFields)
+    var filterTuples = inputFieldArray.map((x) => {
+            return [x.getAttribute("name"), x.value];
+        })
+        // Only returns values which is not empty or blank space
+    var re = new RegExp("^\s*$")
+    return filterTuples.filter(x => !re.test(x[1]));
 }
+
 
 /* Not sure why its here
 document.addEventListener("DOMContentLoaded", function() {
