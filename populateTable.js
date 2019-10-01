@@ -1,3 +1,7 @@
+var currentTable = "inventory"
+var host = "http://localhost:8080/"
+
+
 function addDataToTbody(nl, data) { // nl -> NodeList, data -> array with objects
     var parsedData = JSON.parse(data)
     parsedData.forEach((o, i) => {
@@ -11,15 +15,13 @@ function addDataToTbody(nl, data) { // nl -> NodeList, data -> array with object
         nl.appendChild(tr);
     })
 }
-var currentTable = "inventory"
-var host = "http://localhost:8080/"
 
 function getData(name) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", host.concat(name), false); // false for synchronous request
+    xmlHttp.open("POST", host.concat(name), false); // false for synchronous request
     var filters = JSON.stringify(readInputValuesFromFields());
-    // TODO: This one is still in a weird format
-    console.log(filters)
+    console.log(filters);
+    // javascript does not fucking sends body for GET request it just fucking set it to null
     xmlHttp.send(filters.toString());
     return xmlHttp.responseText;
 }
