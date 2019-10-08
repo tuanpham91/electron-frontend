@@ -28,7 +28,9 @@ function getData(name) {
 
 function onClickSearch() {
     var dataBody = document.getElementById("data-body");
-    addDataToTbody(dataBody, getData(currentTable));
+    var data = getData(currentTable)
+    console.log(data)
+    addDataToTbody(dataBody, data);
 }
 
 function loadTable(name) {
