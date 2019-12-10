@@ -12,6 +12,9 @@ function addDataToTbody(nl, data) { // nl -> NodeList, data -> array with object
             cell.innerHTML = o[att]; // Assign object values to cells  
             ind++;
         }
+        tr.addEventListener("dblclick", function() {
+            alert("Changed");
+        });
         nl.appendChild(tr);
     })
 }
@@ -40,6 +43,9 @@ function loadTable(name) {
     $('#current-table').load(name.concat("_table.html"));
     $('#filter-widget').innerHTML = "";
     $('#filter-widget').load(name.concat("_filter.html"));
+    $('#apply-widget').innerHTML = "";
+    $('#apply-widget').load("inventory".concat("_modifier.html"));
+
 }
 
 function clearRows() {
