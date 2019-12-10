@@ -27,6 +27,7 @@ function getData(name) {
 }
 
 function onClickSearch() {
+    clearRows()
     var dataBody = document.getElementById("data-body");
     var data = getData(currentTable)
     console.log(data)

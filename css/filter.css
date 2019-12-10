@@ -1,17 +1,16 @@
 .filter-div {
-    padding-top: 30px;
     margin-left: 20px;
     margin-right: 20px;
     font-family: 'Open Sans', sans-serif;
     color: dimgrey;
     line-height: 2.2;
-    font-size: 18px;
+    font-size: 20px;
     width: 50%;
 }
 
 .inputText {
     float: right;
     min-width: 60%;
-    height: 30px;
-    padding-top: 20px;
+    height: 40px;
+    margin: auto;
 }
