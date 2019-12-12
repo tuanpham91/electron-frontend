@@ -2,6 +2,7 @@
 @import url("fonts.css");
 @import url("tables.css");
 @import url("filter.css");
+@import url("apply.css");
 .column {
     float: left;
     min-height: 100%;

@@ -44,7 +44,7 @@ function loadTable(name) {
     $('#filter-widget').innerHTML = "";
     $('#filter-widget').load(name.concat("_filter.html"));
     $('#apply-widget').innerHTML = "";
-    $('#apply-widget').load("inventory".concat("_modifier.html"));
+    $('#apply-widget').load(name.concat("_modifier.html"));
 
 }
 
